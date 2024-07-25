@@ -1,0 +1,98 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-I./headers",
+      "-I./external_deps",
+      "-DTESTING",
+      "-c",
+      "-o",
+      "obj/constants.o",
+      "src/constants.cpp"
+    ],
+    "directory": "/home/shrey/copper",
+    "file": "/home/shrey/copper/src/constants.cpp",
+    "output": "/home/shrey/copper/obj/constants.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-I./headers",
+      "-I./external_deps",
+      "-DTESTING",
+      "-c",
+      "-o",
+      "obj/logger.o",
+      "src/logger.cpp"
+    ],
+    "directory": "/home/shrey/copper",
+    "file": "/home/shrey/copper/src/logger.cpp",
+    "output": "/home/shrey/copper/obj/logger.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-I./headers",
+      "-I./external_deps",
+      "-DTESTING",
+      "-c",
+      "-o",
+      "obj/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/home/shrey/copper",
+    "file": "/home/shrey/copper/src/main.cpp",
+    "output": "/home/shrey/copper/obj/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-I./headers",
+      "-I./external_deps",
+      "-DTESTING",
+      "-c",
+      "-o",
+      "obj/system_packages.o",
+      "src/system_packages.cpp"
+    ],
+    "directory": "/home/shrey/copper",
+    "file": "/home/shrey/copper/src/system_packages.cpp",
+    "output": "/home/shrey/copper/obj/system_packages.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-I./headers",
+      "-I./external_deps",
+      "-DTESTING",
+      "-c",
+      "-o",
+      "obj/unit.o",
+      "src/unit.cpp"
+    ],
+    "directory": "/home/shrey/copper",
+    "file": "/home/shrey/copper/src/unit.cpp",
+    "output": "/home/shrey/copper/obj/unit.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-I./headers",
+      "-I./external_deps",
+      "-DTESTING",
+      "-c",
+      "-o",
+      "obj/utils.o",
+      "src/utils.cpp"
+    ],
+    "directory": "/home/shrey/copper",
+    "file": "/home/shrey/copper/src/utils.cpp",
+    "output": "/home/shrey/copper/obj/utils.o"
+  }
+]

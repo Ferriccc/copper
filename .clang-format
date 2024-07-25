@@ -1,0 +1,5 @@
+BasedOnStyle: Google
+Standard: Cpp17
+IndentWidth: 2
+TabWidth: 2
+UseTab: Never

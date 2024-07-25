@@ -23,7 +23,7 @@ const std::string OUTSUFFIX = " 2> " + OUT;
   }
 
 void compile() {
-  int ret = system("(cd /home/shrey/copper/ && make all)");
+  int ret = system("(cd /home/shrey/copper/ && make clean test)");
   ASSERT(ret != -1 && WIFEXITED(ret) && WEXITSTATUS(ret) == 0);
 }
 

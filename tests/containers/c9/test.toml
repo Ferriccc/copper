@@ -1,0 +1,8 @@
+name = "only new config for system_packages table"
+args = ["/home/shrey/copper/tests/containers/c9/configs"]
+exp = [
+  "SUCCESS: ADD_PACK PACKAGE1",
+  "SUCCESS: ADD_PACK_HOOK1 PACKAGE1",
+  "SUCCESS: ADD_PACK_HOOK2 PACKAGE1",
+]
+continue = 0

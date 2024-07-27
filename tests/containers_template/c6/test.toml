@@ -1,0 +1,11 @@
+name = "providing generation_store_dir in config.toml with ending '/' and also they don't exists"
+args = ["/home/shrey/copper/tests/containers/c6/configs/"]
+exp = [
+  "WARN: found '/' at provided path ending",
+  "WARN: generation_store_dir path defined in config.toml does not exists, creating ...",
+  "WARN: info.toml file does not exists, creating ...",
+]
+exp_files = [
+  "/home/shrey/copper/tests/containers/c6/.copper/info.toml"
+]
+continue = 1

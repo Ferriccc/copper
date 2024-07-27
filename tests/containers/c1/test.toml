@@ -1,0 +1,6 @@
+name = "argc test with empty string"
+args = []
+exp = [
+  "ASSERTION FAILED: argc == 2"
+]
+continue = 0

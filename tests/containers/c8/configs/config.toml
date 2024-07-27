@@ -1,0 +1,4 @@
+[copper]
+generation_store_dir = "/home/shrey/copper/tests/containers/c8/.copper"
+
+[system_packages]

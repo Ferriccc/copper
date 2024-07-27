@@ -1,0 +1,3 @@
+[system_packages]
+add_cmd = "ADD_PACK #1"
+del_cmd = "DEL_PACK #1"

@@ -1,0 +1,6 @@
+name = "providing arg dir that doesnot exsists"
+args = ["/somerandompath"]
+exp = [
+  "ASSERTION FAILED: std::filesystem::exists(new_config_path)"
+]
+continue = 0

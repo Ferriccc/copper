@@ -1,0 +1,11 @@
+[system_packages]
+add_cmd = "ADD_PACK #1"
+del_cmd = "DEL_PACK #1"
+list = [
+  "PACKAGE1"
+]
+[system_packages.PACKAGE1]
+del_cmds = [
+  "DEL_PACK_HOOK1 PACKAGE1",
+  "DEL_PACK_HOOK2 PACKAGE1",
+]

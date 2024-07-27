@@ -1,0 +1,6 @@
+name = "argc test with more args than needed"
+args = ["arg1", "arg2", "arg10"]
+exp = [
+  "ASSERTION FAILED: argc == 2"
+]
+continue = 0

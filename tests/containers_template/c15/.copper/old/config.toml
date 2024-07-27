@@ -1,0 +1,17 @@
+[git]
+add_cmd = "ADD_GIT #1 #2"
+del_cmd = "DEL_GIT #1"
+
+[[git.list]]
+alias = "aGT1"
+repo_url = "GT1"
+clone_dir = "DIR1"
+[[git.list]]
+alias = "aGT2"
+repo_url = "GT2"
+clone_dir = "DIR2"
+
+[git.aGT1]
+del_cmds = [
+  "DEL_GIT_HOOK1 GT1"
+]

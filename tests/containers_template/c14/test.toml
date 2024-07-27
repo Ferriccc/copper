@@ -1,0 +1,10 @@
+name = "only new config for git table"
+args = ["/home/shrey/copper/tests/containers/c14/configs"]
+exp = [
+  "SUCCESS: ADD_GIT GT1 DIR1",
+  "SUCCESS: ADD_GIT_HOOK1 GT1",
+  "SUCCESS: ADD_GIT_HOOK2 GT1",
+  "SUCCESS: ADD_GIT GT2 DIR2",
+  "SUCCESS: ADD_GIT_HOOK1 GT2",
+]
+continue = 0

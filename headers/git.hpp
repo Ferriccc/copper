@@ -3,9 +3,9 @@
 #include "toml.hpp"
 #include "unit.hpp"
 
-class SystemPackages {
+class Git {
 public:
-  SystemPackages();
+  Git();
   void update();
 
 private:

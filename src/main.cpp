@@ -3,6 +3,7 @@
 #include "constants.hpp"
 #include "system_packages.hpp"
 #include "services.hpp"
+#include "git.hpp"
 #include "logger.hpp"
 
 void apply(const std::string& path) {
@@ -12,9 +13,11 @@ void apply(const std::string& path) {
 
   SystemPackages sp;
   Services sr;
+  Git gt;
 
   sp.update();
   sr.update();
+  gt.update();
 
   infoTbl.insert_or_assign("current", newGenDir);
   std::ofstream outfile(genStoreDir + "/info.toml");

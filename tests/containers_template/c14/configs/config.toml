@@ -1,0 +1,25 @@
+[copper]
+generation_store_dir = "/home/shrey/copper/tests/containers/c14/.copper"
+
+[git]
+add_cmd = "ADD_GIT #1 #2"
+del_cmd = "DEL_GIT #1"
+
+[[git.list]]
+alias = "aGT1"
+repo_url = "GT1"
+clone_dir = "DIR1"
+[[git.list]]
+alias = "aGT2"
+repo_url = "GT2"
+clone_dir = "DIR2"
+
+[git.aGT1]
+add_cmds = [
+  "ADD_GIT_HOOK1 GT1", 
+  "ADD_GIT_HOOK2 GT1"
+]
+[git.aGT2]
+add_cmds = [
+  "ADD_GIT_HOOK1 GT2"
+]

@@ -105,4 +105,6 @@ int main(int argc, char** argv) {
     std::string path = TESTS_DIR + "/c" + std::to_string(i);
     tester(path);
   }
+
+  fs::remove_all(TESTS_DIR, ec);
 }

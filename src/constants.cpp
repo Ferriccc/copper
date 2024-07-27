@@ -1,9 +1,10 @@
 #include <filesystem>
+#include <fstream>
 
 #include "constants.hpp"
 #include "logger.hpp"
-#include "toml.hpp"
 #include "utils.hpp"
+#include "toml.hpp"
 
 std::string genStoreDir;
 std::string newGenDir;

@@ -25,7 +25,7 @@ const std::string TEMPLATE_DIR = "/home/shrey/copper/tests/containers_template";
 const std::string TESTS_DIR = "/home/shrey/copper/tests/containers";
 
 void compile() {
-  int ret = system("(cd /home/shrey/copper/ && make clean test)");
+  int ret = system("(cd /home/shrey/copper/ && make test)");
   ASSERT(ret != -1 && WIFEXITED(ret) && WEXITSTATUS(ret) == 0);
   SUCCESS("it compiles");
 }

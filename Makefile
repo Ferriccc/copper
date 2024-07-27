@@ -1,5 +1,8 @@
+JOBS ?= 4
+MAKEFLAGS += -j$(JOBS)
+
 CC = g++
-CFLAGS = -std=c++20 -I./headers -I./external_deps
+CFLAGS = -std=c++20 -I./headers -I./external_deps -DTOML_HEADER_ONLY=0
 TEST_FLAGS = -DTESTING
 RELEASE_FLAGS = -O3
 

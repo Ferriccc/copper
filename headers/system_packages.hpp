@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "toml.hpp"
 #include "unit.hpp"
 

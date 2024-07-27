@@ -1,5 +1,7 @@
 #include <filesystem>
+#include <fstream>
 
+#define TOML_IMPLEMENTATION
 #include "constants.hpp"
 #include "system_packages.hpp"
 #include "services.hpp"

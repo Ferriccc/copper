@@ -1,0 +1,10 @@
+[services]
+add_cmd = "ADD_SERV #1"
+del_cmd = "DEL_SERV #1"
+list = [
+  "SER3"
+]
+[services.SER3]
+del_cmds = [
+  "DEL_SERV_HOOK1 SER3"
+]

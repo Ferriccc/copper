@@ -1,0 +1,18 @@
+[copper]
+generation_store_dir = "/home/shrey/copper/tests/containers/c12/.copper"
+
+[services]
+add_cmd = "ADD_SERV #1"
+del_cmd = "DEL_SERV #1"
+list = [
+  "SER1", 
+  "SER2"
+]
+[services.SER1]
+add_cmds = [
+  "ADD_SERV_HOOK1 SER1"
+]
+[services.SER2]
+add_cmds = [
+  "ADD_SERV_HOOK1 SER2"
+]

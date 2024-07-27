@@ -6,9 +6,14 @@ add_cmd = "ADD_PACK #1"
 del_cmd = "DEL_PACK #1"
 list = [
   "PACKAGE2",
+  "PACKAGE3",
 ]
 [system_packages.PACKAGE2]
 add_cmds = [
   "ADD_PACK_HOOK1 PACKAGE2",
   "ADD_PACK_HOOK2 PACKAGE2",
+]
+[system_packages.PACKAGE3]
+add_cmds = [
+  "ADD_PACK_HOOK1 PACKAGE3",
 ]

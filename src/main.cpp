@@ -2,6 +2,7 @@
 
 #include "constants.hpp"
 #include "system_packages.hpp"
+#include "services.hpp"
 #include "logger.hpp"
 
 void apply(const std::string& path) {
@@ -10,7 +11,10 @@ void apply(const std::string& path) {
            (fs::copy_options::update_existing | fs::copy_options::recursive));
 
   SystemPackages sp;
+  Services sr;
+
   sp.update();
+  sr.update();
 
   infoTbl.insert_or_assign("current", newGenDir);
   std::ofstream outfile(genStoreDir + "/info.toml");

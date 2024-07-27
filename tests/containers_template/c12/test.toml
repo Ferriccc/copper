@@ -1,0 +1,9 @@
+name = "new config only services table"
+args = ["/home/shrey/copper/tests/containers/c12/configs"]
+exp = [
+  "SUCCESS: ADD_SERV SER1",
+  "SUCCESS: ADD_SERV_HOOK1 SER1",
+  "SUCCESS: ADD_SERV SER2",
+  "SUCCESS: ADD_SERV_HOOK1 SER2",
+]
+continue = 0

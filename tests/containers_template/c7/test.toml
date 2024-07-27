@@ -1,7 +1,5 @@
 name = "no system_packages table"
 args = ["/home/shrey/copper/tests/containers/c7/configs"]
 exp = [
-  "WARN: new config.toml does not contain \"system_packages\" table, ignoring ...",
-  "WARN: old config.toml does not contain \"system_packages\" table, ignoring ...",
 ]
 continue = 1

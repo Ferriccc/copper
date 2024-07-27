@@ -1,6 +1,0 @@
-name = "providing empty generation_store_dir in config.toml"
-args = ["/home/shrey/copper/tests/containers/c5/configs"]
-exp = [
-  "ASSERTION FAILED: genStoreDir != \"\""
-]
-continue = 0

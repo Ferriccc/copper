@@ -1,6 +1,0 @@
-name = "providing arg path with '/' ending"
-args = ["/home/shrey/copper/tests/containers/c3/configs/"]
-exp = [
-  "WARN: found '/' at provided path ending"
-]
-continue = 1

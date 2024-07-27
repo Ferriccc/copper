@@ -1,6 +1,0 @@
-name = "empty add / del commands in system_packages table"
-args = ["/home/shrey/copper/tests/containers/c8/configs"]
-exp = [
-  "ASSERTION FAILED: strlen(add_cmd) != 0",
-]
-continue = 0

@@ -1,0 +1,5 @@
+[copper]
+generation_store_dir = "/home/shrey/copper/tests/containers/c17/.copper"
+
+[symlinks]
+prefix = "somepath_that_doesnot_exists/"

@@ -36,6 +36,13 @@ void verifyFiles(const toml::table &tbl) {
       ASSERT(fs::exists(o.value_or(""))); 
     });
   }
+
+  if (const toml::array *arr = tbl["no_exp_files"].as_array()) {
+    arr->for_each([&](const auto &o) {
+      ASSERT(!fs::exists(o.value_or(""))); 
+    });
+  }
+
   DBG("verified exp_files");
 }
 
@@ -45,6 +52,13 @@ void verifySymlinks(const toml::table &tbl) {
       ASSERT(fs::is_symlink(o.value_or(""))); 
     });
   }
+
+  if (const toml::array *arr = tbl["no_exp_symlinks"].as_array()) {
+    arr->for_each([&](const auto &o) { 
+      ASSERT(!fs::is_symlink(o.value_or(""))); 
+    });
+  }
+
   DBG("verified exp_symlinks");
 }
 
@@ -95,7 +109,7 @@ void tester(std::string &path) {
 int main(int argc, char** argv) {
   std::error_code ec;
   fs::remove_all(TESTS_DIR, ec);
-  fs::copy(TEMPLATE_DIR, TESTS_DIR, fs::copy_options::recursive);
+  system(("cp -ar " + TEMPLATE_DIR + "/ " + TESTS_DIR).c_str());
 
   compile();
 

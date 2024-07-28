@@ -1,0 +1,6 @@
+name = "providing file path in prefix"
+args = ["/home/shrey/copper/tests/containers/c18/configs"]
+exp = [
+  "ASSERTION FAILED: fs::is_directory(prefix)",
+]
+continue = 0

@@ -1,0 +1,14 @@
+name = "both old and new symlinks"
+args = ["/home/shrey/copper/tests/containers/c16/configs"]
+exp = [
+]
+exp_symlinks = [
+  "/home/shrey/copper/tests/containers/c16/SYM1.txt",
+  "/home/shrey/copper/tests/containers/c16/SYM4.txt"
+]
+no_exp_symlinks = [
+  "/home/shrey/copper/tests/containers/c16/SYM2.txt",
+  "/home/shrey/copper/tests/containers/c16/SYM3.txt",
+  "/home/shrey/copper/tests/containers/c16/config.toml",
+]
+continue = 0

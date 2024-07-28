@@ -1,0 +1,6 @@
+[symlinks]
+prefix = "/home/shrey/copper/tests/containers/c16"
+exclude = [
+  "config\\.toml",
+  "SYM4\\.txt"
+]

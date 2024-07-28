@@ -1,0 +1,8 @@
+[copper]
+generation_store_dir = "/home/shrey/copper/tests/containers/c21/.copper"
+
+[symlinks]
+prefix = "/home/shrey/copper/tests/containers/c21"
+exclude = [ # relative to prefix
+  "config\\.toml",
+]

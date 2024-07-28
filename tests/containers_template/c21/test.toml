@@ -1,0 +1,14 @@
+name = "only new symlinks and check if existing symlinks are removed"
+args = ["/home/shrey/copper/tests/containers/c21/configs"]
+exp = [
+]
+exp_symlinks = [
+  "/home/shrey/copper/tests/containers/c21/parent/SYM1.txt",
+]
+no_exp_symlinks = [
+  "/home/shrey/copper/tests/containers/c21/config.toml",
+]
+exp_files = [
+  "/home/shrey/copper/tests/containers/c21/parent/SYM.txt",
+]
+continue = 0

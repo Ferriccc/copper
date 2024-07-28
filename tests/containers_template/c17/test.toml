@@ -1,0 +1,7 @@
+name = "providing path ending with '/' in prefix && provided path doesn't exists"
+args = ["/home/shrey/copper/tests/containers/c17/configs"]
+exp = [
+  "WARN: found '/' at provided path ending",
+  "ASSERTION FAILED: fs::is_directory(prefix)",
+]
+continue = 0

@@ -1,0 +1,13 @@
+name = "only new symlinks and checks exclude option"
+args = ["/home/shrey/copper/tests/containers/c19/configs"]
+exp = [
+]
+exp_symlinks = [
+  "/home/shrey/copper/tests/containers/c19/SYM1.txt",
+  "/home/shrey/copper/tests/containers/c19/SYM2.txt",
+]
+no_exp_symlinks = [
+  "/home/shrey/copper/tests/containers/c19/SYM3.txt",
+  "/home/shrey/copper/tests/containers/c19/config.toml",
+]
+continue = 0

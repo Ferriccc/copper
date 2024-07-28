@@ -1,0 +1,5 @@
+[copper]
+generation_store_dir = "/home/shrey/copper/tests/containers/c18/.copper"
+
+[symlinks]
+prefix = "/home/shrey/copper/tests/containers/c18/.copper/info.toml"

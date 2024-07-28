@@ -7,7 +7,7 @@
 #include "toml.hpp"
 
 std::string genStoreDir;
-std::string newGenDir;
+std::string newGenDir, oldGenDir;
 toml::table newConfigTbl, oldConfigTbl, infoTbl;
 
 namespace constants {
@@ -44,10 +44,10 @@ void populate(std::string &path) {
 
   newGenDir = genStoreDir + "/" + utils::randomString(20);
 
-  const std::string old_dir = infoTbl["current"].value_or("");
+  oldGenDir = infoTbl["current"].value_or("");
 
-  if (old_dir != "") {
-    oldConfigTbl = toml::parse_file(old_dir + "/config.toml");
+  if (oldGenDir != "") {
+    oldConfigTbl = toml::parse_file(oldGenDir + "/config.toml");
   }
 }
 

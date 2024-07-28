@@ -1,0 +1,11 @@
+name = "only new symlinks and check if parent dir is made"
+args = ["/home/shrey/copper/tests/containers/c20/configs"]
+exp = [
+]
+exp_symlinks = [
+  "/home/shrey/copper/tests/containers/c20/parent/SYM1.txt",
+]
+no_exp_symlinks = [
+  "/home/shrey/copper/tests/containers/c20/config.toml"
+]
+continue = 0

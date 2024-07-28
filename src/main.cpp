@@ -14,15 +14,15 @@ void apply(const std::string& path) {
   fs::copy(path, newGenDir,
            (fs::copy_options::update_existing | fs::copy_options::recursive));
 
-  SystemPackages sp;
-  Services sr;
   Git gt;
   Symlinks sl;
+  SystemPackages sp;
+  Services sr;
 
-  sp.update();
-  sr.update();
   gt.update();
   sl.update();
+  sp.update();
+  sr.update();
 
   infoTbl.insert_or_assign("current", newGenDir);
   std::ofstream outfile(genStoreDir + "/info.toml");

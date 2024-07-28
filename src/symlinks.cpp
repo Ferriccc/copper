@@ -56,13 +56,12 @@ void Symlinks::del(const std::string &destination) {
 }
 
 void Symlinks::fetch(const toml::table &tbl, std::vector<std::pair<std::string, std::string>> &result) {
-  std::string prefix = tbl["symlinks"]["prefix"].value_or("/");
+  std::string prefix = tbl["symlinks"]["prefix"].value_or("");
 
-  if (prefix != "/") {
+  if (prefix != "") {
     utils::sanitiseDirPathEnding(prefix);
+    COPPER_LOG_ASSERT(fs::is_directory(prefix));
   }
-
-  COPPER_LOG_ASSERT(fs::is_directory(prefix));
 
   // TODO: improve performance
   std::vector<std::regex> exclusions;

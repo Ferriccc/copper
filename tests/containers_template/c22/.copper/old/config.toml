@@ -1,0 +1,5 @@
+[symlinks]
+prefix = "/home/shrey/copper/tests/containers/c22"
+exclude = [ # relative to prefix
+  "config\\.toml",
+]

@@ -52,7 +52,7 @@ void Services::update() {
 }
 
 void Services::add(const Unit &u) {
-  for (const std::string& cmd: u._add_cmds) {
+  for (const std::string &cmd: u._add_cmds) {
     utils::run(cmd.c_str());
   }
 

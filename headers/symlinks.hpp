@@ -17,5 +17,5 @@ private:
   void add(const std::string &from, const std::string &to);
   void del(const std::string &destination);
 
-  void fetch(const toml::table &tbl, std::vector<std::pair<std::string, std::string>> &result);
+  void fetch(const toml::table &tbl, std::vector<std::pair<std::string, std::string>> &result, bool f);
 };

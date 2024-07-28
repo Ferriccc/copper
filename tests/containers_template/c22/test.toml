@@ -1,0 +1,11 @@
+name = "check if old gen existing symlinks are removed"
+args = ["/home/shrey/copper/tests/containers/c22/configs"]
+no_exp_symlinks = [
+  "/home/shrey/copper/tests/containers/c22/config.toml",
+  "/home/shrey/copper/tests/containers/c22/SYM1.txt",
+]
+continue = 0
+
+[[make_symlinks]]
+from = "/home/shrey/copper/tests/containers/c22/.copper/old/SYM1.txt" 
+to = "/home/shrey/copper/tests/containers/c22/SYM1.txt" 

@@ -1,6 +1,5 @@
 #include <filesystem>
 #include <regex>
-#include <iostream>
 
 #include "symlinks.hpp"
 #include "constants.hpp"
@@ -11,11 +10,11 @@
 // TODO: improve performance things are very slow here
 Symlinks::Symlinks() {
   if (newConfigTbl.contains("symlinks")) {
-    fetch(newConfigTbl, _additions);
+    fetch(newConfigTbl, _additions, 1);
   }
 
   if (oldConfigTbl.contains("symlinks")) {
-    fetch(oldConfigTbl, _deletions);
+    fetch(oldConfigTbl, _deletions, 0);
   }
 }
 
@@ -55,7 +54,7 @@ void Symlinks::del(const std::string &destination) {
   }
 }
 
-void Symlinks::fetch(const toml::table &tbl, std::vector<std::pair<std::string, std::string>> &result) {
+void Symlinks::fetch(const toml::table &tbl, std::vector<std::pair<std::string, std::string>> &result, bool f) {
   std::string prefix = tbl["symlinks"]["prefix"].value_or("");
 
   if (prefix != "") {
@@ -81,7 +80,8 @@ void Symlinks::fetch(const toml::table &tbl, std::vector<std::pair<std::string, 
     return false;
   };
 
-  const std::string dir = (tbl == newConfigTbl ? newGenDir : oldGenDir);
+  const std::string dir = (f ? newGenDir : oldGenDir);
+
   for (const auto &it : fs::recursive_directory_iterator(dir)) {
     if (!it.is_regular_file()) {
       continue;

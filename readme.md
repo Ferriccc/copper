@@ -70,7 +70,7 @@ $ copper /path/to/directory/containing_config.toml_file
 * copper supports installing and uninstalling packages declaratively, to get started configure the package install / uninstall commands for your linux distro by adding following lines to config.toml file:
 ```toml
 [system_packages] 
-add_cmd = "sudo apt install #1" (#1 is a placeholder to tell copper to replace it with package name)
+add_cmd = "sudo apt install #1" # "#1" is a placeholder to tell copper to replace it with package name
 del_cmd = "sudo apt remove #1"
 ```
 * Now you can start adding packages to your system by just adding them in the list by adding following lines:
@@ -88,11 +88,11 @@ list = [
 [system_packages.visual-studio-code-bin]
 add_cmds = [
   "sudo chown $(whoami) -R /opt/visual-studio-code/",
-  ...
+  # ...
 ] # add hooks will be ran after adding the respective package
 del_cmds = [
   "sudo rm -rf /opt/visual-studio-code/",
-  ...
+  # ...
 ] # del hooks will be ran after respective package is removed.
 ```
 
@@ -100,7 +100,7 @@ del_cmds = [
 * copper supports managing active / inactive systemd-services, start by adding following lines to your config.toml file:
 ```toml
 [systemd_services]
-add_cmd = "sudo systemctl enable --now #1" (#1 is a placeholder to tell copper to replace it with service name)
+add_cmd = "sudo systemctl enable --now #1" # "#1" is a placeholder to tell copper to replace it with service name
 del_cmd = "sudo systemctl disable --now #1"
 ```
 * Now you can defining services declartively by adding following lines:
@@ -108,7 +108,7 @@ del_cmd = "sudo systemctl disable --now #1"
 list = [
     "bluetooth.service", 
     "powertop.service",
-    ...
+    # ...
 ]
 ```
 * Each time when a new generation is build, copper will activate / deactivate services to match the above list.
@@ -116,10 +116,10 @@ list = [
 ```toml
 [systemd_services.bluetooth.service]
 add_cmds = [
-  ...
+  # ...
 ] # add hooks will be ran after adding the respective package
 del_cmds = [
-  ...
+  # ...
 ] # del hooks will be ran after respective package is removed.
 ```
 
@@ -149,7 +149,7 @@ exclude = ["config\\.toml", "\\.git.*"]
 * Start by defining clone / removal commands in config.toml:
 ```toml
 [git]
-add_cmd = "git clone #1 #2" (#1, #2 are placeholders, will be replaced by repo url, destination respectively)
+add_cmd = "git clone #1 #2" # "#1", "#2" are placeholders, will be replaced by repo url, destination respectively
 del_cmd = "rm -rf #1"
 ```
 * Now you can start adding repositories by following syntax:

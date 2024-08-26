@@ -3,13 +3,13 @@
 
 #define TOML_IMPLEMENTATION
 #include "constants.hpp"
-#include "system_packages.hpp"
-#include "services.hpp"
 #include "git.hpp"
-#include "symlinks.hpp"
 #include "logger.hpp"
+#include "services.hpp"
+#include "symlinks.hpp"
+#include "system_packages.hpp"
 
-void apply(const std::string& path) {
+void apply(const std::string &path) {
   namespace fs = std::filesystem;
   fs::copy(path, newGenDir,
            (fs::copy_options::update_existing | fs::copy_options::recursive));

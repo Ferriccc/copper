@@ -79,7 +79,7 @@ list = [
     "make",
     "htop",
     "neovim",
-    ...
+    # ...
 ]
 ```
 * Each time when a new generation is built, copper will sync packages to match the above defined list.

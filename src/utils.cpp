@@ -25,7 +25,8 @@ void run(const char *cmd) {
   COPPER_LOG_INFO(cmd);
 }
 
-std::string replacePrefix(const std::string&  target, const std::string &from, const std::string &to) {
+std::string replacePrefix(const std::string &target, const std::string &from,
+                          const std::string &to) {
   COPPER_LOG_ASSERT(target.size() > 0 && target.starts_with(from));
 
   std::string res = to + target.substr(from.size());
@@ -34,9 +35,11 @@ std::string replacePrefix(const std::string&  target, const std::string &from, c
 }
 
 std::string randomString(const int length) {
-  std::mt19937_64 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+  std::mt19937_64 rng(
+      std::chrono::steady_clock::now().time_since_epoch().count());
 
-  const std::string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  const std::string characters =
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
   std::uniform_int_distribution<> distribution(0, characters.size() - 1);
 

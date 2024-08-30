@@ -53,8 +53,7 @@ void verifySymlinks(const toml::table &tbl) {
 
   if (const toml::array *arr = tbl["no_exp_symlinks"].as_array()) {
     arr->for_each(
-        [&](const auto &o) { 
-        ASSERT(!fs::is_symlink(o.value_or(""))); });
+        [&](const auto &o) { ASSERT(!fs::is_symlink(o.value_or(""))); });
   }
 
   DBG("verified exp_symlinks");

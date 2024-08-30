@@ -4,7 +4,7 @@
 #include "utils.hpp"
 #include "toml.hpp"
 
-// TODO: improve performance things are very slow here
+// TODO: improve performance 
 Git::Git() {
   std::vector<Unit> all_new, all_old;
 

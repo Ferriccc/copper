@@ -7,7 +7,7 @@
 #include "utils.hpp"
 #include "toml.hpp"
 
-// TODO: improve performance things are very slow here
+// TODO: improve performance 
 Symlinks::Symlinks() {
   if (newConfigTbl.contains("symlinks")) {
     fetch(newConfigTbl, _additions, 1);

@@ -10,6 +10,7 @@ SRC_DIR = ./src
 OBJ_DIR = ./obj
 BIN_DIR = ./bin
 INSTALL_DIR = /usr/local/bin
+LOCAL_TEST_DIR = /home/shrey/scripts
 
 SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
@@ -20,7 +21,7 @@ release: $(BIN_DIR)/copper
 
 test: CFLAGS += $(TEST_FLAGS)
 test: $(BIN_DIR)/copper
-	sudo cp $(BIN_DIR)/copper $(INSTALL_DIR)
+	sudo cp $(BIN_DIR)/copper $(LOCAL_TEST_DIR)
 
 $(BIN_DIR)/copper: $(OBJ_FILES)
 	mkdir -p $(BIN_DIR)

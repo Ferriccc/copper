@@ -62,7 +62,7 @@ $ copper /path/to/directory/containing_config.toml_file
 ```
 * Refer the respective sections for specific usage of each modules:
     * [System-Packages](#system-packages)
-    * [Systemd-Services](#systemd-services)
+    * [Services](#services)
     * [Symlinks (Config files of other programs)](#symlinks)
     * [Git repos](#git)
 
@@ -96,10 +96,10 @@ del_cmds = [
 ] # del hooks will be ran after respective package is removed.
 ```
 
-## Systemd-services
+## Services
 * copper supports managing active / inactive systemd-services, start by adding following lines to your config.toml file:
 ```toml
-[systemd_services]
+[services]
 add_cmd = "sudo systemctl enable --now #1" # "#1" is a placeholder to tell copper to replace it with service name
 del_cmd = "sudo systemctl disable --now #1"
 ```
@@ -114,7 +114,7 @@ list = [
 * Each time when a new generation is build, copper will activate / deactivate services to match the above list.
 * Hooks can be added on **per-service** basis in following syntax:
 ```toml
-[systemd_services.bluetooth.service]
+[services.bluetooth.service]
 add_cmds = [
   # ...
 ] # add hooks will be ran after adding the respective package

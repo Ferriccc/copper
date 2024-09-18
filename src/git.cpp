@@ -62,11 +62,11 @@ void Git::add(const Unit &u) {
 }
 
 void Git::del(const Unit &u) {
-  for (const std::string& cmd: u._del_cmds) {
+  for (const std::string &cmd : u._del_hooks) {
     utils::run(cmd.c_str());
   }
 
-  for (const std::string &cmd : u._del_hooks) {
+  for (const std::string& cmd: u._del_cmds) {
     utils::run(cmd.c_str());
   }
 }

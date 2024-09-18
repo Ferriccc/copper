@@ -21,7 +21,7 @@ release: $(BIN_DIR)/copper
 
 test: CFLAGS += $(TEST_FLAGS)
 test: $(BIN_DIR)/copper
-	sudo cp $(BIN_DIR)/copper $(LOCAL_TEST_DIR)
+	sudo cp $(BIN_DIR)/copper $(INSTALL_DIR)
 
 $(BIN_DIR)/copper: $(OBJ_FILES)
 	mkdir -p $(BIN_DIR)

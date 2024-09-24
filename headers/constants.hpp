@@ -5,6 +5,7 @@
 extern std::string genStoreDir;
 extern std::string newGenDir, oldGenDir;
 extern toml::table newConfigTbl, oldConfigTbl, infoTbl;
+extern int maxGens;
 
 namespace constants {
 

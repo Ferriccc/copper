@@ -3,12 +3,13 @@
 
 #include "constants.hpp"
 #include "logger.hpp"
-#include "utils.hpp"
 #include "toml.hpp"
+#include "utils.hpp"
 
 std::string genStoreDir;
 std::string newGenDir, oldGenDir;
 toml::table newConfigTbl, oldConfigTbl, infoTbl;
+int maxGens;
 
 namespace constants {
 
@@ -25,10 +26,15 @@ void populate(std::string &path) {
 
   COPPER_LOG_ASSERT(genStoreDir != "");
 
+  maxGens = newConfigTbl["copper"]["max_generations"].value_or(0);
+
+  COPPER_LOG_ASSERT(maxGens >= 0);
+
   utils::sanitiseDirPathEnding(genStoreDir);
 
   if (!std::filesystem::exists(genStoreDir)) {
-    COPPER_LOG_WARN("generation_store_dir path defined in config.toml does not exists, creating ...");
+    COPPER_LOG_WARN("generation_store_dir path defined in config.toml does not "
+                    "exists, creating ...");
     std::filesystem::create_directories(genStoreDir);
   }
 

@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <filesystem>
 #include <fstream>
 
@@ -28,6 +29,26 @@ void apply(const std::string &path) {
   std::ofstream outfile(genStoreDir + "/info.toml");
   outfile << infoTbl;
   outfile.close();
+
+  std::vector<fs::directory_entry> allGens;
+  for (auto &it : fs::directory_iterator(genStoreDir)) {
+    if (!fs::is_directory(it))
+      continue;
+    allGens.push_back(it);
+  }
+
+  if (allGens.empty() || maxGens == 0 || allGens.size() <= maxGens)
+    return;
+
+  std::sort(allGens.begin(), allGens.end(), [&](auto &x, auto &y) {
+    return fs::last_write_time(x) > fs::last_write_time(y);
+  });
+
+  for (int i = maxGens; i < allGens.size(); ++i) {
+    fs::remove_all(allGens[i]);
+  }
+
+  COPPER_LOG_INFO("Cleaned older generations");
 }
 
 int main(int argc, char **argv) {

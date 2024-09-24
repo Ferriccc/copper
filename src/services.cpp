@@ -84,11 +84,13 @@ void Services::fetch(const toml::table &tbl, std::vector<Unit> &result) {
       Unit u;
 
       std::string cmd = add_cmd;
-      cmd.replace(cmd.find("#1"), 2, service);
+      while (cmd.find("#1") != std::string::npos)
+        cmd.replace(cmd.find("#1"), 2, service);
       u._add_cmds.push_back(cmd);
 
       cmd = del_cmd;
-      cmd.replace(cmd.find("#1"), 2, service);
+      while (cmd.find("#1") != std::string::npos)
+        cmd.replace(cmd.find("#1"), 2, service);
       u._del_cmds.push_back(cmd);
 
       if (const toml::array *add_cmds_arr =

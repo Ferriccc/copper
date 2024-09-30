@@ -18,17 +18,11 @@ extern const char *yellowColorCode;
 #define COPPER_LOG_WARN(x)                                                     \
   {                                                                            \
     std::cerr << yellowColorCode << "WARN: " << resetColorCode;                \
-    size_t sz = strlen(x);                                                     \
-    for (size_t i = 0; i < sz; ++i)                                            \
-      std::cerr << x[i];                                                       \
-    std::cerr << '\n';                                                         \
+    std::cerr << x << '\n';                                                    \
   }
 
 #define COPPER_LOG_INFO(x)                                                     \
   {                                                                            \
     std::cerr << greenColorCode << "SUCCESS: " << resetColorCode;              \
-    size_t sz = strlen(x);                                                     \
-    for (size_t i = 0; i < sz; ++i)                                            \
-      std::cerr << x[i];                                                       \
-    std::cerr << '\n';                                                         \
+    std::cerr << x << '\n';                                                    \
   }

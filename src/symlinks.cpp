@@ -1,13 +1,14 @@
 #include <filesystem>
+#include <format>
 #include <regex>
 
-#include "symlinks.hpp"
 #include "constants.hpp"
 #include "logger.hpp"
-#include "utils.hpp"
+#include "symlinks.hpp"
 #include "toml.hpp"
+#include "utils.hpp"
 
-// TODO: improve performance 
+// TODO: improve performance
 Symlinks::Symlinks() {
   if (newConfigTbl.contains("symlinks")) {
     fetch(newConfigTbl, _additions, 1);
@@ -41,7 +42,18 @@ void Symlinks::add(const std::string &from, const std::string &to) {
   fs::create_symlink(from, to, ec);
 
   if (ec == std::errc::permission_denied) {
-    // TODO: add option for linking to non permitted directories using "sudo"
+    COPPER_LOG_WARN(
+        std::format("Elevation required for symlinking {} -> {}\nEnter 'y' for "
+                    "elevating or 'n' to skip...",
+                    from, to));
+
+    char userResponse;
+    std::cin >> userResponse;
+
+    if (userResponse != 'y')
+      return;
+
+    utils::run(std::format("sudo ln -s {} {}", from, to).c_str());
   }
 }
 
@@ -50,11 +62,24 @@ void Symlinks::del(const std::string &destination) {
   fs::remove(destination, ec);
 
   if (ec == std::errc::permission_denied) {
-    // TODO: add option for linking to non permitted directories using "sudo"
+    COPPER_LOG_WARN(std::format(
+        "Elevation required for removing exsisting file {}\nEnter 'y' for "
+        "elevating or 'n' to skip...",
+        destination));
+
+    char userResponse;
+    std::cin >> userResponse;
+
+    if (userResponse != 'y')
+      return;
+
+    utils::run(std::format("sudo rm -rf {}", destination).c_str());
   }
 }
 
-void Symlinks::fetch(const toml::table &tbl, std::vector<std::pair<std::string, std::string>> &result, bool f) {
+void Symlinks::fetch(const toml::table &tbl,
+                     std::vector<std::pair<std::string, std::string>> &result,
+                     bool f) {
   std::string prefix = tbl["symlinks"]["prefix"].value_or("");
 
   if (prefix != "") {
@@ -64,7 +89,7 @@ void Symlinks::fetch(const toml::table &tbl, std::vector<std::pair<std::string, 
 
   // TODO: improve performance
   std::vector<std::regex> exclusions;
-  if (const toml::array* arr = tbl["symlinks"]["exclude"].as_array()) {
+  if (const toml::array *arr = tbl["symlinks"]["exclude"].as_array()) {
     arr->for_each([&](const auto &ele) {
       exclusions.push_back(std::regex(prefix + "/" + ele.value_or("")));
     });
@@ -86,14 +111,14 @@ void Symlinks::fetch(const toml::table &tbl, std::vector<std::pair<std::string, 
     if (!it.is_regular_file()) {
       continue;
     }
-    
+
     const std::string from = it.path();
     const std::string to = utils::replacePrefix(from, dir, prefix);
 
     if (isExcluded(to)) {
       continue;
     }
-    
+
     result.emplace_back(from, to);
   }
 }

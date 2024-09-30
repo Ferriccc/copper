@@ -131,17 +131,14 @@ del_cmds = [
 ```
 * This makes is very easy for version tracking, just make a git repo inside the directory containing config.toml to track every config file of programs used in your linux system.
 * This also enables you to preserve changes, you can revert to some previous file content using copper's generation in case of editing a file breaks your system.
-* To track files, which are not owned by current user, add following lines to config.toml:
+* Begin with adding following lines to config.toml,
 ```toml
 [symlinks]
-sudo_add_cmd = "sudo mkdir -p $(dirname #2) && sudo ln -s #1 #2"
-sudo_del_cmd = "sudo rm -rf #1"
+exclude = []
 ```
 * Exclusion rules can be added, and supports **regular expressions**:
 ```toml
 [symlinks]
-sudo_add_cmd = "sudo mkdir -p $(dirname #2) && sudo ln -s #1 #2"
-sudo_del_cmd = "sudo rm -rf #1"
 exclude = ["config\\.toml", "\\.git.*"]
 ```
 ## Git

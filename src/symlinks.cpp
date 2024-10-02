@@ -43,15 +43,7 @@ void Symlinks::add(const std::string &from, const std::string &to) {
 
   if (ec == std::errc::permission_denied) {
     COPPER_LOG_WARN(
-        std::format("Elevation required for symlinking {} -> {}\nEnter 'y' for "
-                    "elevating or 'n' to skip...",
-                    from, to));
-
-    char userResponse;
-    std::cin >> userResponse;
-
-    if (userResponse != 'y')
-      return;
+        std::format("Elevation required for symlinking {} -> {}", from, to));
 
     utils::run(std::format("sudo ln -s {} {}", from, to).c_str());
   }
@@ -63,15 +55,7 @@ void Symlinks::del(const std::string &destination) {
 
   if (ec == std::errc::permission_denied) {
     COPPER_LOG_WARN(std::format(
-        "Elevation required for removing exsisting file {}\nEnter 'y' for "
-        "elevating or 'n' to skip...",
-        destination));
-
-    char userResponse;
-    std::cin >> userResponse;
-
-    if (userResponse != 'y')
-      return;
+        "Elevation required for removing exsisting file {}", destination));
 
     utils::run(std::format("sudo rm -rf {}", destination).c_str());
   }

@@ -36,15 +36,19 @@ void Symlinks::update() {
 }
 
 void Symlinks::add(const std::string &from, const std::string &to) {
-  std::error_code ec;
+  std::error_code ec1, ec2;
 
-  fs::create_directories(fs::path(to).parent_path(), ec);
-  fs::create_symlink(from, to, ec);
+  fs::create_directories(fs::path(to).parent_path(), ec1);
+  fs::create_symlink(from, to, ec2);
 
-  if (ec == std::errc::permission_denied) {
+  if (ec1 == std::errc::permission_denied ||
+      ec2 == std::errc::permission_denied) {
     COPPER_LOG_WARN(
         std::format("Elevation required for symlinking {} -> {}", from, to));
 
+    utils::run(
+        std::format("sudo mkdir -p {}", fs::path(to).parent_path().string())
+            .c_str());
     utils::run(std::format("sudo ln -s {} {}", from, to).c_str());
   }
 }

@@ -21,7 +21,7 @@
 - **Hook support**: Copper supports hooks to be ran after performing some changes in configuration, making it possible to avoid imperative style of commands even further.
 
 ## Dependencies
-
+- gcc 13 (or above) for compiling
 - [make](https://www.gnu.org/software/make/)
 - [toml++](https://github.com/marzer/tomlplusplus): A great Library by [marzer](https://github.com/marzer) for parsing toml files in c++, this is pre-included and is **not** needed to be installed separately.
 

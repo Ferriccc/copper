@@ -163,9 +163,6 @@ add_cmds = ["(cd /home/shrey/paru/ && makepkg -si)"]
 del_cmds = ["sudo pacman -R paru"]
 ```
 
-## Examples
-- Take a look at my configuration at my [Linux-configs](https://github.com/Ferriccc/my-linux-configs) for example use.
-
 ## Updates
 - ~I am planning to add support for rollbacks so that if something breaks you can rollback to previous state of the system using copper~ (UPD: added!)
 - Any suggestions / Feature requests are more than welcomed.
